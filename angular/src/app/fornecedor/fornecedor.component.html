@@ -1,0 +1,29 @@
+<div class="container">
+  <div class="alert alert-warning" *ngIf="fornecedorForm.dirty && fornecedorForm.invalid">Enter valid values</div>
+  <form action="" (ngSubmit)="!fornecedorForm.invalid && saveFornecedor()" #fornecedorForm="ngForm">
+    <fieldset class="form-group">
+      <label for="">Nome</label>
+      <input type="text" [(ngModel)]="fornecedor.nome" class="form-control" name="nome" required="required">
+    </fieldset>
+    <!-- <fieldset class="form-group">
+      <label for="">Endereço</label>
+      <input type="text" [(ngModel)]="fornecedor.endereco" class="form-control" name="endereco" >
+    </fieldset> -->
+    <fieldset class="form-group">
+      <label for="">Telefone</label>
+      <input type="text" [(ngModel)]="fornecedor.telefone" class="form-control" name="telefone" required="required">
+    </fieldset>
+    <fieldset class="form-group">
+      <label for="">Cnpj</label>
+      <input type="text" [(ngModel)]="fornecedor.cnpj" class="form-control" name="cnpj" required="required">
+    </fieldset>
+    <fieldset class="form-group">
+      <label for="">I.E.</label>
+      <input type="text" [(ngModel)]="fornecedor.inscricaoEstadual" class="form-control" name="inscricaoEstadual"
+        required="required">
+    </fieldset>
+
+
+    <button type="submit" class="btn btn-success">Salvar</button>
+  </form>
+</div>

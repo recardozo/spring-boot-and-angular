@@ -1,0 +1,34 @@
+<div class="alert alert-success" *ngIf='message'>{{message}}</div>
+<div class="container">
+
+  <table class="table">
+    <thead>
+      <th>Nome</th>
+      <th>R.G.</th>
+      <th>CPF</th>
+      <th>Telefone</th>
+      
+    </thead>
+
+    <tbody>
+      <tr *ngFor="let cliente of clientes">
+        <td>{{cliente.nome}}</td>
+        <td>{{cliente.rg}}</td>
+        <td>{{cliente.cpf}}</td>
+        <td>{{cliente.telefone}}</td>
+        
+        
+
+
+        <td><button (click)="updateCliente(cliente.id)" class="btn btn-success">Editar</button></td>
+        <td><button (click)="deleteCliente(cliente.id)" class="btn btn-warning">Excluir</button></td>
+
+      </tr>
+    </tbody>
+  </table>
+  <div class="row">
+    <button (click)="addCliente()" class="btn btn-success">Adicionar</button>
+  </div>
+
+
+</div>

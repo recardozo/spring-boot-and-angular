@@ -1,0 +1,37 @@
+<h1>Funcionarios</h1>
+<div class="container">
+  <div class="alert alert-warning" *ngIf="funcionarioForm.dirty && funcionarioForm.invalid">Enter valid values</div>
+  <form action="" (ngSubmit)="!funcionarioForm.invalid && saveFuncionario()" #funcionarioForm="ngForm">
+
+
+    <fieldset class="form-group">
+      <label for="">Nome</label>
+      <input type="text" [(ngModel)]="funcionario.nome" class="form-control" name="nome" required="required">
+    </fieldset>
+    <fieldset class="form-group">
+      <label for="">RG</label>
+      <input type="text" [(ngModel)]="funcionario.rg" class="form-control" name="rg" required="required">
+    </fieldset>
+    <fieldset class="form-group">
+      <label for="">CPF</label>
+      <input type="text" [(ngModel)]="funcionario.cpf" class="form-control" name="cpf" required="required">
+    </fieldset>
+    <fieldset class="form-group">
+      <label for="">Salario</label>
+      <input type="text" [(ngModel)]="funcionario.salario" class="form-control" name="preco" required="required">
+    </fieldset>
+    <fieldset class="form-group">
+      <label for="">Departamento</label><br>
+      <select class="form-control" [(ngModel)]="funcionario.departamento" (change)="departamento" [ngModelOptions]="{standalone: true}" required>
+        <option *ngFor="let departamento of departamentos" ngDefaultControl [ngValue]="departamento">
+          {{departamento.nome}}
+        </option>
+      </select>
+
+    </fieldset>
+    
+
+    <button type="submit" class="btn btn-success">Salvar</button>
+  </form>
+
+</div>

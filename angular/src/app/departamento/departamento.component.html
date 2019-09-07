@@ -1,0 +1,14 @@
+<div class="container">
+  <div class="alert alert-warning" *ngIf="departamentoForm.dirty && departamentoForm.invalid">Enter valid values</div>
+  <form action="" (ngSubmit)="!departamentoForm.invalid && saveDepartamento()" #departamentoForm="ngForm">
+    <fieldset class="form-group">
+      <label for="">Nome</label>
+      <input type="text" [(ngModel)]="departamento.nome" class="form-control" name="nome" required="required">
+    </fieldset>
+    <fieldset class="form-group">
+      <label for="">Descrição</label>
+      <input type="text" [(ngModel)]="departamento.descricao" class="form-control" name="descricao" required="required">
+    </fieldset>
+    <button type="submit" class="btn btn-success">Salvar</button>
+  </form>
+</div>

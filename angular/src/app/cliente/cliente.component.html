@@ -1,0 +1,28 @@
+<div class="container">
+  <div class="alert alert-warning" *ngIf="clienteForm.dirty && clienteForm.invalid">Enter valid values</div>
+  <form action="" (ngSubmit)="!clienteForm.invalid && saveCliente()" #clienteForm="ngForm">
+    <fieldset class="form-group">
+      <label for="">Nome</label>
+      <input type="text" [(ngModel)]="cliente.nome" class="form-control" name="nome" required="required">
+    </fieldset>
+    <!-- <fieldset class="form-group">
+      <label for="">Endereço</label>
+      <input type="text" [(ngModel)]="cliente.endereco" class="form-control" name="endereco" >
+    </fieldset> -->
+    <fieldset class="form-group">
+      <label for="">Telefone</label>
+      <input type="tel" [(ngModel)]="cliente.telefone" class="form-control" name="telefone" required="required">
+    </fieldset>
+    <fieldset class="form-group">
+      <label for="">R.G</label>
+      <input type="text" [(ngModel)]="cliente.rg" class="form-control" name="rg" required="required">
+    </fieldset>
+    <fieldset class="form-group">
+      <label for="">CPF</label>
+      <input type="number" [(ngModel)]="cliente.cpf" class="form-control" name="cpf" required="required">
+    </fieldset>
+
+
+    <button type="submit" class="btn btn-success">Salvar</button>
+  </form>
+</div>

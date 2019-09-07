@@ -1,0 +1,32 @@
+<div class="alert alert-success" *ngIf='message'>{{message}}</div>
+<div class="container">
+
+  <table class="table">
+    <thead>
+      <th>Nome</th>
+      <th>R.G</th>
+      <th>CPF</th>
+      <th>Salario</th>
+      <th>Departamento</th>
+
+    </thead>
+
+
+    <tbody>
+      <tr *ngFor="let funcionario of funcionarios">
+        <td>{{funcionario.nome}}</td>
+        <td>{{funcionario.rg}}</td>
+        <td>{{funcionario.cpf}}</td>
+        <td>{{funcionario.salario  | currency:'BRL':'symbol':'0.1-2':'pt'  }}</td>
+        <td>{{funcionario.departamento.nome}}</td>
+
+        <td><button (click)="updateFuncionario(funcionario.id)" class="btn btn-success">Editar</button></td>
+        <td><button (click)="deleteFuncionario(funcionario.id)" class="btn btn-warning">Excluir</button></td>
+
+      </tr>
+    </tbody>
+  </table>
+  <div class="row">
+    <button (click)="addFuncionario()" class="btn btn-success">Adicionar</button>
+  </div>
+</div>

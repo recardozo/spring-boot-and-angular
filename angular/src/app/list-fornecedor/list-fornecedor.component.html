@@ -1,0 +1,33 @@
+<div class="alert alert-success" *ngIf='message'>{{message}}</div>
+<div class="container">
+
+  <table class="table">
+    <thead>
+      <th>Nome</th>
+      <th>Endereço</th>
+      <th>Telefone</th>
+      <th>Cnpj</th>
+      <th>I.E.</th>
+    </thead>
+
+    <tbody>
+      <tr *ngFor="let fornecedor of fornecedores">
+        <td>{{fornecedor.nome}}</td>
+        <td>{{fornecedor.endereco}}</td>
+        <td>{{fornecedor.telefone}}</td>
+        <td>{{fornecedor.cnpj}}</td>
+        <td>{{fornecedor.inscricaoEstadual}}</td>
+
+
+        <td><button (click)="updateFornecedor(fornecedor.id)" class="btn btn-success">Editar</button></td>
+        <td><button (click)="deleteFornecedor(fornecedor.id)" class="btn btn-warning">Excluir</button></td>
+
+      </tr>
+    </tbody>
+  </table>
+  <div class="row">
+    <button (click)="addFornecedor()" class="btn btn-success">Adicionar</button>
+  </div>
+
+
+</div>

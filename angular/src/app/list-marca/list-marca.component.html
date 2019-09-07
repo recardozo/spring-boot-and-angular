@@ -1,0 +1,28 @@
+<div class="alert alert-success" *ngIf='message'>{{message}}</div>
+<div class="container">
+
+  <table class="table">
+    <thead>
+      <th>Nome</th>
+      <th>Descrição</th>
+      <th>Fornecedor</th>
+
+    </thead>
+
+
+    <tbody>
+      <tr *ngFor="let marca of marcas">
+        <td>{{marca.nome}}</td>
+        <td>{{marca.descricao}}</td>
+        <td>{{marca.fornecedor.nome}}</td>
+
+        <td><button (click)="updateMarca(marca.id)" class="btn btn-success">Editar</button></td>
+        <td><button (click)="deleteMarca(marca.id)" class="btn btn-warning">Excluir</button></td>
+
+      </tr>
+    </tbody>
+  </table>
+  <div class="row">
+    <button (click)="addMarca()" class="btn btn-success">Adicionar</button>
+  </div>
+</div>

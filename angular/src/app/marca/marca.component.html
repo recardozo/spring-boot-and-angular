@@ -1,0 +1,28 @@
+<h1>Marcas</h1>
+<div class="container">
+
+  <div class="alert alert-warning" *ngIf="marcaForm.dirty && marcaForm.invalid">Enter valid values</div>
+
+  <form action="" (ngSubmit)="!marcaForm.invalid && saveMarca()" #marcaForm="ngForm">
+    <fieldset class="form-group">
+      <label for="">Nome</label>
+      <input type="text" [(ngModel)]="marca.nome" class="form-control" name="nome" required="required">
+    </fieldset>
+    <fieldset class="form-group">
+      <label for="">Descrição</label>
+      <input type="text" [(ngModel)]="marca.descricao" class="form-control" name="descricao" required="required">
+    </fieldset>
+
+    <fieldset class="form-group">
+      <label for="">Fornecedor</label><br>
+    <select class="form-control" [(ngModel)]="marca.fornecedor" (change)="fornecedor" [ngModelOptions]="{standalone: true}"
+        >
+        <option *ngFor="let fornecedor of fornecedores" ngDefaultControl [ngValue]="fornecedor">
+          {{fornecedor.nome}}
+        </option>
+      </select>
+    </fieldset>
+    <button type="submit" class="btn btn-success">Salvar</button>
+  </form>
+
+</div>

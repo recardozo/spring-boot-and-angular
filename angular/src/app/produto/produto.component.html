@@ -1,0 +1,44 @@
+<h1>Produtos</h1>
+<div class="container">
+  <div class="alert alert-warning" *ngIf="produtoForm.dirty && produtoForm.invalid">Enter valid values</div>
+  <form action="" (ngSubmit)="!produtoForm.invalid && saveProduto()" #produtoForm="ngForm">
+
+
+    <fieldset class="form-group">
+      <label for="">Nome</label>
+      <input type="text" [(ngModel)]="produto.nome" class="form-control" name="nome" required="required">
+    </fieldset>
+    <fieldset class="form-group">
+      <label for="">Descrição</label>
+      <input type="text" [(ngModel)]="produto.descricao" class="form-control" name="descricao" required="required">
+    </fieldset>
+    <fieldset class="form-group">
+      <label for="">Setor</label>
+      <input type="text" [(ngModel)]="produto.setor" class="form-control" name="setor" required="required">
+    </fieldset>
+    <fieldset class="form-group">
+      <label for="">Preço</label>
+      <input type="text" [(ngModel)]="produto.preco" class="form-control" name="preco" required="required">
+    </fieldset>
+    <fieldset class="form-group">
+      <label for="">Marca</label><br>
+      <select class="form-control" [(ngModel)]="produto.marca" (change)="marca" [ngModelOptions]="{standalone: true}" required>
+        <option *ngFor="let marca of marcas" ngDefaultControl [ngValue]="marca">
+          {{marca.nome}}
+        </option>
+      </select>
+
+    </fieldset>
+    <fieldset class="form-group">
+      <label for="">Coleção</label><br>
+      <select class="form-control" [(ngModel)]="produto.colecao" [ngModelOptions]="{standalone: true}" required>
+        <option value="0">Primavera/Verão</option>
+        <option value="1"> Outono/Inverno</option>
+
+      </select>
+    </fieldset>
+
+    <button type="submit" class="btn btn-success">Salvar</button>
+  </form>
+
+</div>
