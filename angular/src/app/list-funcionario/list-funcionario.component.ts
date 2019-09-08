@@ -10,7 +10,7 @@ import { Departamento } from '../shared/departamento.model';
   styleUrls: ['./list-funcionario.component.css']
 })
 export class ListFuncionarioComponent implements OnInit {
-  @Output() departamento:Departamento
+  // @Output() departamento:Departamento
   message: string;
   funcionarios:Funcionario[];
   

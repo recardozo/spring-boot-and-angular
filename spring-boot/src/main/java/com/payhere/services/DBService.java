@@ -21,8 +21,16 @@ public class DBService {
     
     public void instantiateTestDatabase () throws ParseException {
         
-        Cliente cli1 = new Cliente ("admin", "", "admin@admin.com", encoder.encode ("admin"), null, "", "", null);
-        Cliente cli2 = new Cliente ("cliente", "", "cliente@admin.com", encoder.encode ("admin"), null, "", "", null);
+        Cliente cli1 = new Cliente ();
+        cli1.setNome ("admin");
+        cli1.setEmail ("admin@admin.com");
+        cli1.setSenha (encoder.encode ("admin"));
+        
+        Cliente cli2 = new Cliente ();
+        cli2.setNome ("cliente");
+        cli2.setEmail ("cliente@admin.com");
+        cli2.setSenha (encoder.encode ("admin"));
+        
         cli1.addPerfil(Perfil.ADMIN);
         cli2.addPerfil (Perfil.CLIENTE);
         clienteRepository.saveAll (Arrays.asList (cli1,cli2));

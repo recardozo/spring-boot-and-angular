@@ -2,10 +2,16 @@ package com.payhere.domain;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.io.Serializable;
 
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
 @MappedSuperclass
 public abstract class Pessoa implements Serializable {
     
@@ -24,57 +30,5 @@ public abstract class Pessoa implements Serializable {
     @ManyToOne(cascade = {CascadeType.ALL})
     @JoinColumn(name = "id_end")
     private Endereco endereco;
-    
-   
-    public Pessoa () {
-    
-    }
-    
-    public Pessoa (String nome, String telefone, String email, String senha, Endereco endereco) {
-        this.nome = nome;
-        this.telefone = telefone;
-        this.email = email;
-        this.senha = senha;
-        this.endereco = endereco;
-    }
-    
-    public String getNome () {
-        return nome;
-    }
-    
-    public void setNome (String nome) {
-        this.nome = nome;
-    }
-    
-    public String getTelefone () {
-        return telefone;
-    }
-    
-    public void setTelefone (String telefone) {
-        this.telefone = telefone;
-    }
-    
-    public Endereco getEndereco () {
-        return endereco;
-    }
-    
-    public void setEndereco (Endereco endereco) {
-        this.endereco = endereco;
-    }
-    
-    public String getEmail () {
-        return email;
-    }
-    
-    public void setEmail (String email) {
-        this.email = email;
-    }
-    @JsonIgnore
-    public String getSenha () {
-        return senha;
-    }
-    
-    public void setSenha (String senha) {
-        this.senha = senha;
-    }
+
 }

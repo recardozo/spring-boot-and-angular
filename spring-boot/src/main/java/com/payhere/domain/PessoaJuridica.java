@@ -1,9 +1,16 @@
 package com.payhere.domain;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
 import javax.persistence.Column;
 import javax.persistence.MappedSuperclass;
 import java.io.Serializable;
 
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
 @MappedSuperclass
 public class PessoaJuridica extends Pessoa implements Serializable {
     
@@ -13,27 +20,4 @@ public class PessoaJuridica extends Pessoa implements Serializable {
     @Column(name = "ie_pes")
     private String inscricaoEstadual;
     
-    public PessoaJuridica () {
-    }
-    
-    public PessoaJuridica (String cnpj, String inscricaoEstadual) {
-        this.cnpj = cnpj;
-        this.inscricaoEstadual = inscricaoEstadual;
-    }
-    
-    public String getCnpj () {
-        return cnpj;
-    }
-    
-    public void setCnpj (String cnpj) {
-        this.cnpj = cnpj;
-    }
-    
-    public String getInscricaoEstadual () {
-        return inscricaoEstadual;
-    }
-    
-    public void setInscricaoEstadual (String inscricaoEstadual) {
-        this.inscricaoEstadual = inscricaoEstadual;
-    }
 }

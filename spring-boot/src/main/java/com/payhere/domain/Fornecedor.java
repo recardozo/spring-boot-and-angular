@@ -1,12 +1,18 @@
 package com.payhere.domain;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
 @Entity
 @Table(name = "fornecedor")
 public class Fornecedor extends PessoaJuridica implements Serializable {
@@ -23,41 +29,4 @@ public class Fornecedor extends PessoaJuridica implements Serializable {
     @OneToMany(mappedBy = "fornecedor")
     private List<Marca> marcas = new ArrayList<> ();
     
-    public Fornecedor () {
-    
-    }
-    
-    public Fornecedor (String cnpj, String inscricaoEstadual) {
-        super (cnpj, inscricaoEstadual);
-    }
-    
-    public Fornecedor (String cnpj, String inscricaoEstadual, Integer id, String nome) {
-        super (cnpj, inscricaoEstadual);
-        this.id = id;
-        this.nome = nome;
-    }
-    
-    public Integer getId () {
-        return id;
-    }
-    
-    public void setId (Integer id) {
-        this.id = id;
-    }
-    
-    public String getNome () {
-        return nome;
-    }
-    
-    public void setNome (String nome) {
-        this.nome = nome;
-    }
-    
-    public List<Marca> getMarcas () {
-        return marcas;
-    }
-    
-    public void setMarcas (List<Marca> marcas) {
-        this.marcas = marcas;
-    }
 }

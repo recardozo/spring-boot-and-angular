@@ -1,8 +1,16 @@
 package com.payhere.domain;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
 import javax.persistence.*;
 import java.math.BigDecimal;
 
+
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
 @Entity
 @Table(name = "funcionario")
 @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
@@ -20,42 +28,4 @@ public class Funcionario extends PessoaFisica {
     @JoinColumn(name = "id_departamento")
     private Departamento departamento;
     
-    
-    public Funcionario () {
-    }
-    
-    public Funcionario (String rg, String cpf) {
-        super (rg, cpf);
-    }
-    
-    public Funcionario (String rg, String cpf, Integer id, BigDecimal salario, Departamento departamento) {
-        super (rg, cpf);
-        this.id = id;
-        this.salario = salario;
-        this.departamento = departamento;
-    }
-    
-    public Integer getId () {
-        return id;
-    }
-    
-    public void setId (Integer id) {
-        this.id = id;
-    }
-    
-    public BigDecimal getSalario () {
-        return salario;
-    }
-    
-    public void setSalario (BigDecimal salario) {
-        this.salario = salario;
-    }
-    
-    public Departamento getDepartamento () {
-        return departamento;
-    }
-    
-    public void setDepartamento (Departamento departamento) {
-        this.departamento = departamento;
-    }
 }

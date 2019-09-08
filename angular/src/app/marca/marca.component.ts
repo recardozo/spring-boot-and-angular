@@ -16,10 +16,9 @@ export class MarcaComponent implements OnInit {
   constructor(private fornecedorService:FornecedorService,private marcaService: MarcaService, private route: ActivatedRoute, private router: Router) { }
 
   id: number;
-  fornecedor:Fornecedor;
   marca: Marca;
+  fornecedor:Fornecedor;
   fornecedores:Fornecedor[];
-
   
   ngOnInit() {
 
@@ -32,6 +31,15 @@ export class MarcaComponent implements OnInit {
         response => this.marca = response
       );
     }
+  }
+
+  listMarcasFornecedores(){
+    this.fornecedorService.listFornecedores().subscribe(
+      response=>{
+        this.fornecedores=response;
+        //console.log(response);
+      }
+    )
   }
 
   saveMarca() {
@@ -51,14 +59,5 @@ export class MarcaComponent implements OnInit {
       );
     }
    
-  }
-
-  listMarcasFornecedores(){
-    this.fornecedorService.listFornecedores().subscribe(
-      response=>{
-        this.fornecedores=response;
-        //console.log(response);
-      }
-    )
   }
 }

@@ -1,11 +1,17 @@
 package com.payhere.domain;
 
 import com.payhere.domain.enums.Colecao;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.io.Serializable;
 import java.math.BigDecimal;
 
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
 @Entity
 @Table(name = "produto")
 public class Produto implements Serializable {
@@ -35,72 +41,4 @@ public class Produto implements Serializable {
     @JoinColumn(name = "setor_produto")
     private Setor setor;
     
-    public Produto () {
-    }
-    
-    public Produto (Integer id, String nome, String descricao, BigDecimal preco, Colecao colecao, Marca marca, Setor setor) {
-        this.id = id;
-        this.nome = nome;
-        this.descricao = descricao;
-        this.preco = preco;
-        this.colecao = colecao;
-        this.marca = marca;
-        this.setor = setor;
-    }
-    
-    public Integer getId () {
-        return id;
-    }
-    
-    public void setId (Integer id) {
-        this.id = id;
-    }
-    
-    public String getNome () {
-        return nome;
-    }
-    
-    public void setNome (String nome) {
-        this.nome = nome;
-    }
-    
-    public String getDescricao () {
-        return descricao;
-    }
-    
-    public void setDescricao (String descricao) {
-        this.descricao = descricao;
-    }
-    
-    public BigDecimal getPreco () {
-        return preco;
-    }
-    
-    public void setPreco (BigDecimal preco) {
-        this.preco = preco;
-    }
-    
-    public Colecao getColecao () {
-        return colecao;
-    }
-    
-    public void setColecao (Colecao colecao) {
-        this.colecao = colecao;
-    }
-    
-    public Marca getMarca () {
-        return marca;
-    }
-    
-    public void setMarca (Marca marca) {
-        this.marca = marca;
-    }
-    
-    public Setor getSetor () {
-        return setor;
-    }
-    
-    public void setSetor (Setor setor) {
-        this.setor = setor;
-    }
 }

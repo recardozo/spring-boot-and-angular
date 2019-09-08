@@ -1,10 +1,16 @@
 package com.payhere.domain;
 
 import com.payhere.domain.enums.TipoPagamento;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.io.Serializable;
 
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
 public class Pagamento implements Serializable {
 
 	@Id
@@ -17,33 +23,4 @@ public class Pagamento implements Serializable {
 	@Enumerated(EnumType.STRING)
 	private TipoPagamento tipo;
 	
-	public Pagamento (Long id, String descricao, TipoPagamento tipo) {
-		this.id = id;
-		this.descricao = descricao;
-		this.tipo = tipo;
-	}
-	
-	public Long getId () {
-		return id;
-	}
-	
-	public void setId (Long id) {
-		this.id = id;
-	}
-	
-	public String getDescricao () {
-		return descricao;
-	}
-	
-	public void setDescricao (String descricao) {
-		this.descricao = descricao;
-	}
-	
-	public TipoPagamento getTipo () {
-		return tipo;
-	}
-	
-	public void setTipo (TipoPagamento tipo) {
-		this.tipo = tipo;
-	}
 }
